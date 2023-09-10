@@ -1,17 +1,14 @@
-// Problem Link - https://www.spoj.com/problems/ABCDEF/
-/* By Sanket Singh */
+// Problem Link - https://codeforces.com/contest/1324/problem/D
+/* By Yuvraj Thapa */
 #include<bits/stdc++.h>
 //#include<ext/pb_ds/assoc_container.hpp>
 //using namespace __gnu_pbds;
 using namespace std;
 #define ll 				long long int
-#define ld				long double
 #define mod             1000000007
 #define inf             1e18
 #define endl			"\n"
-#define pb 				emplace_back
 #define vi              vector<ll>
-#define vs				vector<string>
 #define pii             pair<ll,ll>
 #define ump				unordered_map
 #define mp 				map
@@ -22,11 +19,7 @@ using namespace std;
 #define mid(l,r)        (l+(r-l)/2)
 #define loop(i,a,b) 	for(int i=(a);i<=(b);i++)
 #define looprev(i,a,b) 	for(int i=(a);i>=(b);i--)
-#define log(args...) 	{ string _s = #args; replace(_s.begin(), _s.end(), ',', ' '); stringstream _ss(_s); istream_iterator<string> _it(_ss); err(_it, args); }
-#define logarr(arr,a,b)	for(int z=(a);z<=(b);z++) cout<<(arr[z])<<" ";cout<<endl;	
-#define token(str,ch)	(std::istringstream var((str)); vs v; string t; while(getline((var), t, (ch))) {v.pb(t);} return v;)
-vs tokenizer(string str,char ch) {std::istringstream var((str)); vs v; string t; while(getline((var), t, (ch))) {v.pb(t);} return v;}
-
+#define log(args...) { string _s = #args; replace(_s.begin(), _s.end(), ',', ' '); stringstream _ss(_s); istream_iterator<string> _it(_ss); err(_it, args); }
 
 void err(istream_iterator<string> it) {}
 template<typename T, typename... Args>
@@ -51,38 +44,25 @@ int main(int argc, char const *argv[]) {
 	file_i_o();
 	int n;
 	cin>>n;
-	vi arr(n);
+	int *a = new int[n];
+	int *b = new int[n];
 	loop(i, 0, n-1) {
-		cin>>arr[i];
+		cin>>a[i];
 	}
-
-	vi lhs;
-	vi rhs;
-
-	loop(a, 0, n-1) {
-		loop(b, 0, n-1) {
-			loop(c, 0, n-1) {
-				lhs.pb(arr[a]*arr[b] + arr[c]);
-			}
-		}
+	loop(i, 0, n-1) {
+		cin>>b[i];
 	}
-	loop(d, 0, n-1) {
-		loop(e, 0, n-1) {
-			loop(f, 0, n-1) {
-				if(arr[d] == 0) continue;
-				rhs.pb((arr[f] + arr[e])*arr[d]);
-			}
-		}
+	vector<int> arr(n);
+	loop(i, 0, n-1) {
+		arr[i] = b[i] - a[i];
 	}
-	sort(lhs.begin(), lhs.end());
-	sort(rhs.begin(), rhs.end());
-
-	ll ans = 0;
-	loop(i, 0, lhs.size() - 1) {
-		int li = lower_bound(rhs.begin(), rhs.end(), lhs[i]) - rhs.begin();
-		int ri = upper_bound(rhs.begin(), rhs.end(), lhs[i]) - rhs.begin();
-		ans += (ri - li);
+	sort(arr.begin(), arr.end());
+	ll result = 0;
+	loop(i, 0, n-1) {
+		auto it = lower_bound(arr.begin()+i+1, arr.end(), -arr[i]);
+		int idx = it - arr.begin();
+		result += (idx - 1 - (i + 1) + 1);
 	}
-	cout<<ans;
+	cout<<result<<endl;
 	return 0;
 }

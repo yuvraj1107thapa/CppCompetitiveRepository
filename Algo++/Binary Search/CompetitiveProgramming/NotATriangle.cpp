@@ -1,5 +1,5 @@
 // Problem Link - https://www.spoj.com/problems/NOTATRI/
-/* By Sanket Singh */
+/* By Yuvraj Thapa */
 #include<bits/stdc++.h>
 #define ll 				long long int
 #define mod             1000000007

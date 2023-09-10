@@ -1,5 +1,5 @@
 /*
-By Sanket Singh
+By Yuvraj Thapa
 */
 #include "iostream"
 #include "limits"

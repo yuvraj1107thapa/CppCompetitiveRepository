@@ -1,5 +1,5 @@
 // Problem Link - https://codeforces.com/edu/course/2/lesson/6/3/practice/contest/285083/problem/A
-/* By Sanket Singh */
+/* By Yuvraj Thapa */
 #include<bits/stdc++.h>
 #define ll 				long long int
 #define mod             1000000007

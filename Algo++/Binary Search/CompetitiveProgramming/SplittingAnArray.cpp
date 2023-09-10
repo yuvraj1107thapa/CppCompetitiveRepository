@@ -1,5 +1,5 @@
 // Problem Link - https://codeforces.com/edu/course/2/lesson/6/3/practice/contest/285083/problem/B
-/* By Sanket Singh */
+/* By Yuvraj Thapa */
 #include<bits/stdc++.h>
 //#include<ext/pb_ds/assoc_container.hpp>
 //using namespace __gnu_pbds;
