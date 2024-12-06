@@ -1,0 +1,31 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+#define endl '\n'
+#define int long long
+
+const int MOD = 1e9 + 7;
+const int INF = LLONG_MAX >> 1;
+
+signed main() {
+	ios::sync_with_stdio(false); cin.tie(NULL);
+	
+	int tc; cin >> tc;
+	while (tc--) {
+		long long A, B;
+		cin >> A >> B;
+		
+		long long x, y, z;
+		
+		x = A; 
+		y = A*B;
+		z = A*B + A;
+		
+		if(x % B == 0 || z % B == 0) {
+			cout << "NO" << endl;
+			continue;
+		}
+		
+		cout << x << " " << y << " " << z << endl;		
+	}
+}
